@@ -26,7 +26,7 @@ Designed as a foundation module: enforcement logic (constraints, server actions,
 UI checks) can be layered on top while configuration remains consistent and
 multi-company aware.
     """,
-    'author': 'Hackathon Team',
+    'author': 'Rudra',
     'website': 'https://www.odoo.com',
     'license': 'LGPL-3',
     'depends': [
