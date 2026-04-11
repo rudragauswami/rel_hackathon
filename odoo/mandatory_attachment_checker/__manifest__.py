@@ -26,7 +26,7 @@ Designed as a foundation module: enforcement logic (constraints, server actions,
 UI checks) can be layered on top while configuration remains consistent and
 multi-company aware.
     """,
-    'author': 'Hackathon Team',
+    'author': 'Rudra',
     'website': 'https://www.odoo.com',
     'license': 'LGPL-3',
     'depends': [
@@ -39,6 +39,7 @@ multi-company aware.
     'data': [
         'views/res_config_settings_views.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'auto_install': False,
