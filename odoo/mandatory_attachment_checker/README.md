@@ -57,6 +57,23 @@
 
 ---
 
+## Apps “Module Info” / `index.html` not showing
+
+Odoo loads the rich description from **`mandatory_attachment_checker/static/description/index.html`** only when it can resolve the module folder on disk:
+
+1. **`addons_path` must point at the directory that *directly* contains the module folder**  
+   If this repo lives at `…/rel_hackathon`, the module path is `…/rel_hackathon/odoo/mandatory_attachment_checker`, so **`addons_path` must include `…/rel_hackathon/odoo`**, not only the repository root. If that path is wrong, Odoo raises `FileNotFoundError` for `index.html` and falls back to the plain manifest **`description`** (RST), so you will not see your HTML layout.
+
+2. **Restart Odoo** after changing `addons_path`, then **Apps → Update Apps List** (with Developer Mode on).
+
+3. **Open the right screen**  
+   The kanban card only shows the short **summary**. The full HTML is shown when you open the module and use **Module Info** / the description area on the module form (wording varies slightly by Odoo version).
+
+4. **Sanitizer**  
+   Odoo runs module HTML through **`html_sanitize`**, which **removes `<style>` and `<script>` tags**. This module’s `index.html` uses **inline `style="..."` attributes** so layout survives sanitization.
+
+---
+
 ## Store banner asset
 
 For Odoo Apps listings, place your **`banner.png`** (recommended landscape artwork) in **`static/description/`**. The manifest already references `static/description/banner.png`; add the file before publishing—no placeholder is shipped in the repository.
