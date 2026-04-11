@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.mandatory.attachment.checker</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <app string="Mandatory attachments"
+                         name="mandatory_attachment_checker"
+                         data-string="Mandatory attachments">
+                        <block title="Document attachment rules"
+                               name="mandatory_attachment_checker_settings">
+                            <setting string="Sales orders"
+                                     company_dependent="1"
+                                     help="Require at least one attachment before sales orders can be confirmed.">
+                                <field name="require_attachment_sale_order"/>
+                                <div class="text-muted">
+                                    When enabled, confirmation is blocked if no attachment is found on the sales order.
+                                </div>
+                            </setting>
+                            <setting string="Purchase orders"
+                                     company_dependent="1"
+                                     help="Require at least one attachment before purchase orders can be confirmed.">
+                                <field name="require_attachment_purchase_order"/>
+                                <div class="text-muted">
+                                    When enabled, confirmation is blocked if no attachment is found on the purchase order.
+                                </div>
+                            </setting>
+                            <setting string="Invoices"
+                                     company_dependent="1"
+                                     help="Require at least one attachment before invoices can be confirmed or posted.">
+                                <field name="require_attachment_invoice"/>
+                                <div class="text-muted">
+                                    When enabled, confirmation is blocked if no attachment is found on the invoice.
+                                </div>
+                            </setting>
+                            <setting string="Expenses"
+                                     company_dependent="1"
+                                     help="Require at least one attachment before expenses can proceed.">
+                                <field name="require_attachment_expense"/>
+                                <div class="text-muted">
+                                    When enabled, confirmation is blocked if no attachment is found on the expense.
+                                </div>
+                            </setting>
+                        </block>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
